@@ -7,7 +7,7 @@
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <DocumentationFile>bin\Debug\FamilyOrganizer.Api.xml</DocumentationFile>
-      <NoWarn>1701;1702;1519</NoWarn>
+      <NoWarn>1701;1702;1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,6 +20,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1" />
+        <PackageReference Include="NLog.Extensions.Logging" Version="1.7.3" />
         <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.4" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.4" />

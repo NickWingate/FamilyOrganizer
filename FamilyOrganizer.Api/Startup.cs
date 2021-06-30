@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using FamilyOrganizer.Api.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -9,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using FamilyOrganizer.Api.Data;
+using FamilyOrganizer.Api.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -43,7 +47,14 @@ namespace FamilyOrganizer.Api
 					Version = "v1",
 					Description = "Api for Family Organizer project"
 				});
+
+				var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+				var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+				c.IncludeXmlComments(xmlPath);
 			});
+
+			services.AddSingleton<ILoggerService, LoggerService>();
+			
 			
 			services.AddControllers();
 		}
@@ -67,6 +78,7 @@ namespace FamilyOrganizer.Api
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Family Organizer Api");
+				c.RoutePrefix = string.Empty;
 			});
 			
 			app.UseHttpsRedirection();
