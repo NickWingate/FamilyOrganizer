@@ -1,5 +1,6 @@
 ﻿using FamilyOrganizer.Domain.Common;
 using FamilyOrganizer.Domain.Enums;
+using FamilyOrganizer.Domain.ValueObjects;
 
 namespace FamilyOrganizer.Domain.Entities
 {
@@ -9,7 +10,6 @@ namespace FamilyOrganizer.Domain.Entities
 		public string Name { get; set; }
 		public int Quantity { get; set; }
 		public decimal UnitCost { get; set; }
-		public decimal TotalCost { get; set; }
 		public ItemCategory Category { get; set; }
 		public ItemPriority Priority { get; set; }
 	}

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using FamilyOrganizer.Domain.Common;
 
-namespace FamilyOrganizer.Domain.Entities
+namespace FamilyOrganizer.Domain.ValueObjects
 {
 	public class ItemCategory : ValueObject
 	{
