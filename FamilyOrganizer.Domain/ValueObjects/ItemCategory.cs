@@ -5,6 +5,7 @@ namespace FamilyOrganizer.Domain.Entities
 {
 	public class ItemCategory : ValueObject
 	{
+		public int Id { get; set; }
 		public ItemCategory(string name)
 		{
 			Name = name;

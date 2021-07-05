@@ -3,8 +3,9 @@ using FamilyOrganizer.Domain.Enums;
 
 namespace FamilyOrganizer.Domain.Entities
 {
-	public class Item : AuditableEntity
+	public class ShoppingItem : AuditableEntity
 	{
+		public int Id { get; set; }
 		public string Name { get; set; }
 		public int Quantity { get; set; }
 		public decimal UnitCost { get; set; }

@@ -7,7 +7,9 @@ namespace FamilyOrganizer.Domain.Entities
 {
 	public class ShoppingList : AuditableEntity
 	{
-		public List<Item> Items { get; set; }
+		public int Id { get; set; }
+		public List<ShoppingItem> Items { get; set; } = new List<ShoppingItem>();
+		public string Name { get; set; }
 		public decimal TotalCost => CalculateTotalCost();
 
 		private decimal CalculateTotalCost()
