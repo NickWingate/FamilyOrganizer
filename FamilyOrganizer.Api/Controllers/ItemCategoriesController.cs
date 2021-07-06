@@ -38,15 +38,23 @@ namespace FamilyOrganizer.Api.Controllers
 			return Ok(response);
 		}
 
+		[HttpGet("{id:int}")]
+		public async Task<IActionResult> GetCategory(int id)
+		{
+			var category = await _repository.FindById(id);
+			var categoryDto = _mapper.Map<ItemCategoryDto>(category);
+			return Ok(categoryDto);
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> Create([FromBody] ItemCategoryDto categoryDto)
 		{
-			categoryDto.Id = 0;
 			if (categoryDto is null || !ModelState.IsValid)
 			{
 				return BadRequest(categoryDto);
 			}
-
+			
+			categoryDto.Id = 0;
 			var category = _mapper.Map<ItemCategory>(categoryDto);
 
 			var createdSuccessfully = await _repository.Create(category);;
@@ -58,6 +66,34 @@ namespace FamilyOrganizer.Api.Controllers
 			
 			return Created(new Uri($"{Request.Path}/{category.Id}", UriKind.Relative), category);
 		}
+		
+		[HttpPut("{id:int}")]
+		public async Task<IActionResult> Update(int id,[FromBody] ItemCategoryDto categoryDto)
+		{
+			var updatedCategory = _mapper.Map<ItemCategory>(categoryDto);
+			updatedCategory.Id = id;
+			var isSuccess = await _repository.Update(updatedCategory);
+			if (!isSuccess)
+			{
+				return InternalError("Update Failed");
+			}
+
+			return NoContent();
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var categoryToDelete = await _repository.FindById(id);
+			var isSuccess = await _repository.Delete(categoryToDelete);
+			if (!isSuccess)
+			{
+				return InternalError("Update Failed");
+			}
+
+			return NoContent();
+		}
+		
 		
 		
 		private string GetControllerActionNames()
