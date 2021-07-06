@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using FamilyOrganizer.Api.Services;
 using FamilyOrganizer.Application;
+using FamilyOrganizer.Infrastructure;
 using FamilyOrganizer.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,13 +35,8 @@ namespace FamilyOrganizer.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddApplication();
-			
-			services.AddDbContext<ApplicationDbContext>(options =>
-				options.UseSqlServer(
-					Configuration.GetConnectionString("DefaultConnection")));
-			services.AddDatabaseDeveloperPageExceptionFilter();
-			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-				.AddEntityFrameworkStores<ApplicationDbContext>();
+
+			services.AddInfrastructure(Configuration);
 
 			services.AddCors(o =>
 			{
