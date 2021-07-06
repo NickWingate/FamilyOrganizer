@@ -74,8 +74,4 @@
       <ProjectReference Include="..\FamilyOrganizer.Infrastructure\FamilyOrganizer.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
 </Project>
