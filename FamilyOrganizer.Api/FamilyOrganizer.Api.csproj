@@ -69,8 +69,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FamilyOrganizer.Application\FamilyOrganizer.Application.csproj" />
       <ProjectReference Include="..\FamilyOrganizer.Domain\FamilyOrganizer.Domain.csproj" />
       <ProjectReference Include="..\FamilyOrganizer.Infrastructure\FamilyOrganizer.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
     </ItemGroup>
 
 </Project>
