@@ -2,6 +2,7 @@
 using FamilyOrganizer.Application.Common.Interfaces;
 using FamilyOrganizer.Application.Common.Repositories;
 using FamilyOrganizer.Domain.ValueObjects;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FamilyOrganizer.Application
@@ -12,7 +13,8 @@ namespace FamilyOrganizer.Application
 		{
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
 			services.AddScoped<IRepositoryBase<ItemCategory>, ItemCategoryRepository>();
-
+			services.AddMediatR(Assembly.GetExecutingAssembly());
+			
 			return services;
 		}
 	}

@@ -14,7 +14,6 @@ namespace FamilyOrganizer.Infrastructure.Persistence
 		{
 			
 		}
-
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
