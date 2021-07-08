@@ -29,7 +29,7 @@ namespace FamilyOrganizer.Application.ShoppingLists.Queries.GetShoppingLists
 
 		public async Task<IList<ShoppingListDto>> Handle(GetShoppingListsQuery request, CancellationToken cancellationToken)
 		{
-			var lists = await _context.ShoppingLists.ToListAsync();
+			var lists = await _context.ShoppingLists.ToListAsync(cancellationToken: cancellationToken);
 			var response = _mapper.Map<IList<ShoppingListDto>>(lists);
 			return response;
 		}

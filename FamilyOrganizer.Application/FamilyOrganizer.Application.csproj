@@ -24,7 +24,6 @@
 
     <ItemGroup>
       <Folder Include="ShoppingItems\Commands" />
-      <Folder Include="ShoppingLists\Commands" />
     </ItemGroup>
 
 </Project>
