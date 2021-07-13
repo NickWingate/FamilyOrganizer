@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using FamilyOrganizer.Domain.Common;
 using FamilyOrganizer.Domain.Enums;
 using FamilyOrganizer.Domain.ValueObjects;
 

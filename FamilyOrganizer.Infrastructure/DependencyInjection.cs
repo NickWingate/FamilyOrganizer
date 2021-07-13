@@ -1,5 +1,6 @@
 ﻿using FamilyOrganizer.Application.Common.Interfaces;
 using FamilyOrganizer.Infrastructure.Persistence;
+using FamilyOrganizer.Infrastructure.Persistence.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace FamilyOrganizer.Infrastructure
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+			services.AddTransient<IDateTime, DateTimeService>();
 			
 			return services;
 		}

@@ -22,6 +22,7 @@ namespace FamilyOrganizer.Application.ShoppingLists.Commands.CreateShoppingList
 
 		public async Task<ShoppingList> Handle(CreateShoppingListCommand request, CancellationToken cancellationToken)
 		{
+			//todo add Auditable entity properties initialization
 			var list = new ShoppingList()
 			{
 				Name = request.Name
