@@ -22,7 +22,6 @@ namespace FamilyOrganizer.Application.ShoppingLists.Commands.CreateShoppingList
 
 		public async Task<ShoppingList> Handle(CreateShoppingListCommand request, CancellationToken cancellationToken)
 		{
-			//todo add Auditable entity properties initialization
 			var list = new ShoppingList()
 			{
 				Name = request.Name
@@ -30,7 +29,7 @@ namespace FamilyOrganizer.Application.ShoppingLists.Commands.CreateShoppingList
 			//todo maybe change to .Add for optimisation (source:) https://stackoverflow.com/a/52318741
 			await _context.ShoppingLists.AddAsync(list, cancellationToken);
 			await _context.SaveChangesAsync(cancellationToken);
-			// todo test list id is being set correctly
+			
 			return list;
 		}
 	}

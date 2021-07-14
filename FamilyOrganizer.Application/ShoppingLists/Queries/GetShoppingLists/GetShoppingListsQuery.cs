@@ -31,6 +31,7 @@ namespace FamilyOrganizer.Application.ShoppingLists.Queries.GetShoppingLists
 		{
 			var lists = await _context.ShoppingLists.ToListAsync(cancellationToken: cancellationToken);
 			var response = _mapper.Map<IList<ShoppingListDto>>(lists);
+			
 			return response;
 		}
 	}

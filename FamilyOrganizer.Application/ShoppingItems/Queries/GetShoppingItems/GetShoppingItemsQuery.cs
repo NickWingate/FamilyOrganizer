@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,7 +31,10 @@ namespace FamilyOrganizer.Application.ShoppingItems.Queries.GetShoppingItems
 
 		public async Task<IList<ShoppingItemDto>> Handle(GetShoppingItemsQuery request, CancellationToken cancellationToken)
 		{
-			throw new NotImplementedException();
+			var items = await _context.ShoppingItems.ToListAsync(cancellationToken);
+			var response = _mapper.Map<IList<ShoppingItemDto>>(items);
+
+			return response;
 		}
 	}
 }
