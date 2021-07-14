@@ -30,7 +30,9 @@ namespace FamilyOrganizer.Application.ItemCategories.Queries.GetItemCategoryById
 		public async Task<ItemCategoryDto> Handle(GetItemCategoryByIdQuery request, CancellationToken cancellationToken)
 		{
 			var category = await _context.ItemCategories.FindAsync(new object[]{request.Id}, cancellationToken);
+			
 			var response = _mapper.Map<ItemCategoryDto>(category);
+			
 			return response;
 		}
 	}
